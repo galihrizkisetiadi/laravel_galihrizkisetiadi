@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel') }} - @yield('title')</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -17,6 +17,8 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <body>
     <div id="app">
@@ -38,7 +40,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -54,10 +56,10 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('hospital') }}">{{ __('Rumah Sakit') }}</a>
+                                <a class="nav-link" href="{{ route('hospital.index') }}">{{ __('Rumah Sakit') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('patient') }}">{{ __('Pasien') }}</a>
+                                <a class="nav-link" href="{{ route('patient.index') }}">{{ __('Pasien') }}</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -83,7 +85,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="p-5">
             @yield('content')
         </main>
     </div>

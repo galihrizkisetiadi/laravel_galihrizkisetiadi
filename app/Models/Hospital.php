@@ -10,6 +10,13 @@ class Hospital extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'address',
+        'email',
+        'telephone'
+    ];
+
     /**
      * Get all of the pasien for the Hospital
      *
