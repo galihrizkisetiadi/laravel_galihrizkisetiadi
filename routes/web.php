@@ -7,9 +7,12 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HospitalController::class, 'index'])->name('index');
 
 Route::middleware([Authenticate::class])->group(function () {
+    Route::get('/', [HospitalController::class, 'index'])->name('index');
+    Route::get('/hospitalGetAll', [PatientController::class, 'indexAll'])->name('hospitalGetAll');
+
+
     Route::resource('hospital', HospitalController::class)->names('hospital');
     Route::resource('patient', PatientController::class)->names('patient');
 });

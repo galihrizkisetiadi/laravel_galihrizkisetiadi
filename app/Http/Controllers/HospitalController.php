@@ -13,8 +13,16 @@ class HospitalController extends Controller
      */
     public function index()
     {
-        $data['collections'] = Hospital::latest()->paginate(5);
+        $data['collections'] = Hospital::latest()->paginate(10);
         return view('hospital.index', $data);
+    }
+
+    /**
+     * Display a listing of the all resource.
+     */
+    public function indexAll()
+    {
+        return Hospital::all();
     }
 
     /**
@@ -58,7 +66,7 @@ class HospitalController extends Controller
     public function update(HospitalRequest $request, Hospital $hospital)
     {
         $hospital->update($request->validated());
-        return redirect('/hospital');
+        return redirect()->route('hospital.index')->with('success', 'Hospital edited successfully!');
     }
 
     /**

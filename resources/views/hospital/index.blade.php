@@ -40,7 +40,7 @@
                     @endforeach
                 </tbody>
             </table>
-            {!! $collections->links() !!}
+            {{ $collections->onEachSide(5)->links() }}
         </div>
     </div>
 
@@ -50,7 +50,7 @@
                 var id = $(this).data('id');
                 var url = '/hospital/' + id;
 
-                if (confirm('Apakah kamu yakin ingin mendelete?')) {
+                if (confirm('Apakah kamu yakin dihapus?')) {
                     $.ajax({
                         url: url,
                         type: 'DELETE',

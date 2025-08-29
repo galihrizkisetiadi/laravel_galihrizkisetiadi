@@ -1,8 +1,8 @@
 @extends('layouts.app')
-@section('title', 'Tambah Rumah Sakit')
+@section('title', 'Rumah Sakit')
 @section('content')
     <div>
-        <h3 class="text-center">Tambah Rumah Sakit</h3>
+        <h3 class="text-center"> {{ isset($collection->name) ? 'Ubah' : 'Tambah' }} Rumah Sakit</h3>
         @if (isset($collection->name))
             <form action="{{ route('hospital.update', $collection) }}" method="POST" class="w-50 mx-auto">
                 @method('put')
