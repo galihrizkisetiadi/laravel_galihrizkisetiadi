@@ -6,9 +6,9 @@
             <div class="d-flex justify-content-between mb-3">
                 <h3>Rumah Sakit</h3>
 
-                <a href="{{ route('hospital.create') }}" class="btn btn-primary">Tambah Rumah Sakit</a>
+                <a href="{{ route('hospital.create') }}" class="btn btn-primary">+ Tambah Rumah Sakit</a>
             </div>
-            <table class="table table-striped">
+            <table class="table">
                 <thead>
                     <tr>
                         <th class="text-center">No</th>
